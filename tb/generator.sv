@@ -7,7 +7,7 @@ class generator #(parameter DATA_WIDTH = 8);
     function new(mailbox gen2drv, event drv_done, int loop_count = 1000);
         this.gen2drv    = gen2drv;
         this.drv_done   = drv_done;
-        this.loop_count = loop_count; // Now it won't default to 0!
+        this.loop_count = loop_count; 
     endfunction
 
     task main();
@@ -15,7 +15,7 @@ class generator #(parameter DATA_WIDTH = 8);
             trans = new();
             if (!trans.randomize()) $fatal("[GEN_FATAL] Randomization failed!");
             gen2drv.put(trans);
-            @(drv_done); // Wait for driver to process transaction
+            @(drv_done); 
         end
     endtask
 endclass
