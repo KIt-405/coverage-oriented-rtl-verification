@@ -36,7 +36,7 @@ module fifo #(
                     wr_ptr      <= wr_ptr + 1;
                     count       <= count + 1;
                 end
-                2'b01: begin // Read Only
+                2'b01: begin
                     data_out    <= mem[rd_ptr];
                     rd_ptr      <= rd_ptr + 1;
                     count       <= count - 1;
