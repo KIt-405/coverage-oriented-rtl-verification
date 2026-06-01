@@ -1,5 +1,4 @@
 class transaction #(parameter DATA_WIDTH = 8);
-    // Rand variables for Constrained Random Verification (CRV)
     rand bit                  wr_en;
     rand bit                  rd_en;
     rand bit [DATA_WIDTH-1:0] data_in;
@@ -7,13 +6,11 @@ class transaction #(parameter DATA_WIDTH = 8);
          bit                  full;
          bit                  empty;
 
-    // Distribution constraint to bias stimulus towards high-density activity
     constraint rw_dist {
         wr_en dist {1 := 50, 0 := 50};
         rd_en dist {1 := 40, 0 := 60};
     }
 
-    // Copy function for reference model operations
     function transaction copy();
         copy = new();
         copy.wr_en    = this.wr_en;
