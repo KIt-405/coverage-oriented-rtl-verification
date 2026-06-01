@@ -1,12 +1,13 @@
 class generator #(parameter DATA_WIDTH = 8);
-    rand transaction #(DATA_WIDTH) trans;
+    transaction #(DATA_WIDTH) trans; 
     mailbox gen2drv;
     event   drv_done;
     int     loop_count;
 
-    function new(mailbox gen2drv, event drv_done);
-        this.gen2drv  = gen2drv;
-        this.drv_done = drv_done;
+    function new(mailbox gen2drv, event drv_done, int loop_count = 1000);
+        this.gen2drv    = gen2drv;
+        this.drv_done   = drv_done;
+        this.loop_count = loop_count; // Now it won't default to 0!
     endfunction
 
     task main();
