@@ -6,7 +6,7 @@ interface fifo_if #(parameter DATA_WIDTH = 8) (input logic clk);
     logic [DATA_WIDTH-1:0]  data_out;
     logic                   full;
     logic                   empty;
-    logic [4:0]             room_avail; // Matched to depth 16
+    logic [4:0]             room_avail; 
 
 
     // 1. Prevent Overflow Hazard
