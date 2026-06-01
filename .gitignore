@@ -1,4 +1,4 @@
-# Tool-specific simulation directories (ModelSim, Questa, VCS, Vivado)
+
 work/
 msim/
 vsim.wlf
