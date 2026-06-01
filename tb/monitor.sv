@@ -15,7 +15,6 @@ class monitor #(parameter DATA_WIDTH = 8);
             trans = new();
             
             @(posedge vif.clk);
-            // Capture data after active edge propagation delay
             #1;
             trans.wr_en    = vif.wr_en;
             trans.rd_en    = vif.rd_en;
