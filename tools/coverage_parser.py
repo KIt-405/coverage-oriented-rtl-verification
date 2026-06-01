@@ -25,22 +25,18 @@ def parse_simulation_report(log_path):
     try:
         with open(log_path, 'r') as file:
             for line in file:
-                # Check for Scoreboard errors
                 if mismatch_regex.search(line):
                     mismatch_counter += 1
                     error_log.append(line.strip())
                 
-                # Check for Assertion errors
                 if assertion_regex.search(line):
                     assertion_failures += 1
                     error_log.append(line.strip())
                 
-                # Capture the successful match count
                 match_succ = match_regex.search(line)
                 if match_succ:
                     match_counter = int(match_succ.group(1))
 
-                # Capture the Coverage percentage as a float (e.g., 88.5)
                 match_cov = coverage_regex.search(line)
                 if match_cov:
                     coverage_score = float(match_cov.group(1))
