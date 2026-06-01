@@ -8,9 +8,6 @@ interface fifo_if #(parameter DATA_WIDTH = 8) (input logic clk);
     logic                   empty;
     logic [4:0]             room_avail; // Matched to depth 16
 
-    //========================================================================
-    // SystemVerilog Assertions (SVA)
-    //========================================================================
 
     // 1. Prevent Overflow Hazard
     property p_no_overflow;
