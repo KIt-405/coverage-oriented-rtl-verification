@@ -8,7 +8,6 @@ module tb_top;
 
     fifo_if #(DATA_WIDTH) inf(clk);
 
-    // DUT Instantiation
     fifo #(
         .DATA_WIDTH(DATA_WIDTH),
         .DEPTH(DEPTH)
@@ -35,7 +34,6 @@ module tb_top;
         $finish;
     end
 
-    // Waveform generation setup
     initial begin
         $dumpfile("sim_dump.vcd");
         $dumpvars(0, tb_top);
