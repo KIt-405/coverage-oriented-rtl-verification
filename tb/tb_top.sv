@@ -3,7 +3,7 @@ module tb_top;
     parameter DEPTH      = 16;
 
     bit clk;
-    always #5 clk = ~clk; // 100MHz clock execution simulation
+    always #5 clk = ~clk; 
 
 
     fifo_if #(DATA_WIDTH) inf(clk);
