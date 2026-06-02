@@ -34,7 +34,7 @@ class env #(parameter DATA_WIDTH = 8);
         join_none
         
         drv.reset();
-        gen.main(); // Blocks until simulation item loop completes
+        gen.main(); 
     endtask
 
     task post_test();
