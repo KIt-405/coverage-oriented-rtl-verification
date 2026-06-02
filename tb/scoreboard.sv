@@ -22,7 +22,6 @@ class scoreboard #(parameter DATA_WIDTH = 8, parameter DEPTH = 16);
                 if (trans.data_out === expected_data) begin
                     match_count++;
                 end else begin
-                    // Upgraded to $error for proper EDA logging tool tracking
                     $error("[SCB_ERROR] Data Mismatch! Expected: 0x%0h, Got: 0x%0h", expected_data, trans.data_out);
                     error_count++;
                 end
