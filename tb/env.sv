@@ -38,7 +38,6 @@ class env #(parameter DATA_WIDTH = 8);
     endtask
 
     task post_test();
-        // Give a couple of cycles for trailing reads/evaluation
         repeat(5) @(posedge vif.clk);
         $display("\n==================================================");
         $display("          VERIFICATION PERFORMANCE REPORT         ");
