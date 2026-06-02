@@ -5,7 +5,7 @@ module tb_top;
     bit clk;
     always #5 clk = ~clk; // 100MHz clock execution simulation
 
-    // Interface Instantiation
+
     fifo_if #(DATA_WIDTH) inf(clk);
 
     // DUT Instantiation
@@ -24,7 +24,7 @@ module tb_top;
         .room_avail(inf.room_avail)
     );
 
-    // Test execution block
+
     initial begin
         env #(DATA_WIDTH) environment;
         environment = new(inf);
