@@ -14,7 +14,7 @@ class scoreboard #(parameter DATA_WIDTH = 8, parameter DEPTH = 16);
         forever begin
             mon2scb.get(trans);
             
-            // 1. Emulate & Verify Read Operations
+      
             if (trans.rd_en && !(ref_fifo.size() == 0)) begin
                 bit [DATA_WIDTH-1:0] expected_data;
                 expected_data = ref_fifo.pop_front();
@@ -28,12 +28,10 @@ class scoreboard #(parameter DATA_WIDTH = 8, parameter DEPTH = 16);
                 end
             end
 
-            // 2. Emulate Write Operations
             if (trans.wr_en && !(ref_fifo.size() == DEPTH)) begin
                 ref_fifo.push_back(trans.data_in);
             end
 
-            // 3. New Industry Check: Validate DUT Status Flags!
             if (trans.full !== (ref_fifo.size() == DEPTH)) begin
                 $error("[SCB_ERROR] Full Flag Mismatch! Model Expected: %b, DUT Got: %b", (ref_fifo.size() == DEPTH), trans.full);
                 error_count++;
