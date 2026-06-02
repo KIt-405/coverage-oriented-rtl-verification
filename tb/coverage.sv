@@ -19,7 +19,7 @@ class coverage #(parameter DATA_WIDTH = 8);
         cp_empty: coverpoint trans.empty;
 
         cross_operational_modes: cross cp_wr_en, cp_rd_en, cp_full, cp_empty {
-            illegal_bins full_and_empty = binsof(cp_full.true) && binsof(cp_empty.true);
+            illegal_bins full_and_empty = binsof(cp_full) intersect {1} && binsof(cp_empty) intersect {1};
         }
     endgroup
 
